@@ -17,6 +17,13 @@ from django.urls import path
 from backend import views
 
 backend_patterns = [
-    path('test', views.TestAPI.as_view(), name='test')
+    path('test', views.TestAPI.as_view(), name='test'),
+
+    path('code/add', views.AddCode.as_view(), name='add'),
+    path('code/view/<str:unique_code>', views.ViewSingleCode.as_view(), name='view-code'),
+    path('code/count/<str:unique_code>', views.AddCount.as_view(), name='add-count'),
+    path('code/all', views.GetAllCode.as_view(), name='get-all-code'),
+    path('code/delete/<str:unique_code>', views.DeleteCode.as_view(), name='delete-code'),
+    path('code/status/<str:unique_code>', views.ChangeStatus.as_view(), name='change-status'),
 
 ]
