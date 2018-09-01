@@ -32,7 +32,7 @@ class GetAllCode(APIView):
 
     @staticmethod
     def get(request):
-        data = composed.get_all_html()
+        data = composed.get_all_html(user="drbalaji97")
         return send_response(data={"data": data}, status=200)
 
 

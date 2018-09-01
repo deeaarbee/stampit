@@ -1,5 +1,5 @@
 from backend.functions import core
-from backend.models import Html
+from backend.models import Html, User
 
 
 def get_html_details_from_object(html: Html):
@@ -16,8 +16,9 @@ def get_html_details_from_object(html: Html):
     return html_dict
 
 
-def get_all_html():
-    htmls = core.get_all_html_objects()
+def get_all_html(user: str):
+    user = User.objects.get(username=user)
+    htmls = core.get_all_html_objects(user=user)
     html_list = list()
     for html in htmls:
         html_list.append(get_html_details_from_object(html=html))
